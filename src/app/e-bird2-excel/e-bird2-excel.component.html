@@ -1,22 +1,31 @@
 <div fxLayout="column" fxLayoutGap="20px" style="margin: 20px;">
-  <div fxFlex fxLayout="row" fxLayoutGap="20px">
-    <mat-card fxFlex>
-      <div fxLayout="row" fxLayoutGap="10px">
-        <mat-form-field fxFlex="50">
-          <input matInput placeholder="ebird ID">
-        </mat-form-field>
-        <div fxFlex="20">
-          <button mat-raised-button color="primary">新增記錄</button>
-        </div>
-    </div>
-    </mat-card>
-    <mat-card fxFlex>
+  <div fxFlex>
+    <div  fxLayout="row" fxLayoutGap="20px">
+      <mat-card fxFlex>
+        <div fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="space-around center" >
+          <mat-form-field fxFlex="50">
+            <input matInput placeholder="ebird ID" [(ngModel)]="sid" (keyup.enter)="add()">
+          </mat-form-field>
+          <div fxFlex="20">
+            <button mat-raised-button color="primary" (click)="add()">新增記錄</button>
+          </div>
+      </div>
+      </mat-card>
+      <mat-card fxFlex>
         Hello World
       </mat-card>
+    </div>
   </div>
-  <mat-tab-group>
-    <mat-tab label="First"> Content 1 </mat-tab>
-    <mat-tab label="Second"> Content 2 </mat-tab>
-    <mat-tab label="Third"> Content 3 </mat-tab>
-  </mat-tab-group>
+  <div fxFlex>
+    <mat-tab-group>
+      <mat-tab *ngFor="let item of query;" [label]="item.subId">
+        {{ item.locName }}
+        {{ item.userDisplayName }}
+        {{ item.obsDt }}
+        <ul>
+          <li *ngFor="let obs of item.birds;">{{ obs.cname }}  {{ obs.qty }}</li>
+        </ul>
+      </mat-tab>
+    </mat-tab-group>
+  </div>
 </div>

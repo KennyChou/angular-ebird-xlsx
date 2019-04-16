@@ -1,0 +1,7 @@
+{
+  "/ws2.0": {
+    "target": "https://ebird.org",
+    "secure": false,
+    "changeOrigin": true
+  }
+}
