@@ -9,13 +9,13 @@ export class EbirdApiService {
   constructor(private http: HttpClient, private cookie: CookieService) {}
   httpOptions = {
     headers: new HttpHeaders({
-      // 'X-eBirdApiToken': 'ba5ifpieofc6'
-      'X-eBirdApiToken': ''
+      'X-eBirdApiToken': 'ba5ifpieofc6'
+      //'X-eBirdApiToken': ''
     })
   };
 
   check_token(): boolean {
-    const token = this.cookie.get('ebirdApiToken');
+    const token = this.cookie.get('ebir// ApiToken');
     if (token) {
       this.httpOptions = {
         headers: new HttpHeaders({

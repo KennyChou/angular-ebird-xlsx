@@ -12,6 +12,7 @@ import { ExportBottomSheetComponent } from '../export-bottom-sheet/export-bottom
 })
 export class EBird2ExcelComponent implements OnInit {
   sid = '';
+  selected = 0;
   query: QUERYDATA[] = [];
   ebirdlist = EBIRDS;
   constructor(
@@ -43,12 +44,15 @@ export class EBird2ExcelComponent implements OnInit {
           (h: HOTSPOT) => {
             data.locName = h.name;
             this.query.push(data);
+            this.selected = this.query.length - 1;
           },
           err => {
             data.locName = '私人熱點';
             this.query.push(data);
+            this.selected = this.query.length - 1;
           }
         );
+
         this.sid = '';
       },
       err => {

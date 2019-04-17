@@ -17,7 +17,7 @@
     </div>
   </div>
   <div fxFlex *ngIf="query.length>0">
-    <mat-tab-group>
+    <mat-tab-group [selectedIndex]="selected">
       <mat-tab *ngFor="let item of query; let idx = index;" [label]="item.subId">
         <div fxLayout="row" style="margin: 5px;">
           <mat-card fxFlex>

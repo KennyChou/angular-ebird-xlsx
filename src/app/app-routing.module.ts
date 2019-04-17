@@ -5,7 +5,7 @@ import { GetTokenComponent } from './get-token/get-token.component';
 
 const routes: Routes = [
   { path: '', component: EBird2ExcelComponent },
-  { path: 'setToken', component: GetTokenComponent }
+  // { path: 'setToken', component: GetTokenComponent }
 ];
 
 @NgModule({
