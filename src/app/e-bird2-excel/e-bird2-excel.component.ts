@@ -11,7 +11,7 @@ import { ExportBottomSheetComponent } from '../export-bottom-sheet/export-bottom
   styleUrls: ['./e-bird2-excel.component.scss']
 })
 export class EBird2ExcelComponent implements OnInit {
-  sid = 'S51373042';
+  sid = '';
   query: QUERYDATA[] = [];
   ebirdlist = EBIRDS;
   constructor(

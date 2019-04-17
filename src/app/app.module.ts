@@ -13,6 +13,7 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ExportBottomSheetComponent } from './export-bottom-sheet/export-bottom-sheet.component';
 import { ExcelService } from './excel-service.service';
+import { CookieModule } from 'ngx-cookie';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { ExcelService } from './excel-service.service';
     FormsModule,
     CommonModule,
     SharedMaterialModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    CookieModule.forRoot()
   ],
   entryComponents: [ExportBottomSheetComponent],
   providers: [ExcelService],

@@ -1,3 +1,27 @@
-<p>
-  get-token works!
-</p>
+<mat-horizontal-stepper>
+  <mat-step label="啟開eBird API Token申請網站">
+    <p>
+      <a mat-button href="https://ebird.org/api/keygen" target="_blank">https://ebird.org/api/keygen</a>
+    </p>
+    <div>
+      <button mat-button matStepperNext>下一步</button>
+    </div>
+  </mat-step>
+  <mat-step label="輸入申請密碼">
+    <p>
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="eBird API密碼" [(ngModel)]="tokenkey">
+      </mat-form-field>
+      <button mat-raised-button color="primary" (click)="ontest(tokenkey)">測試</button>
+    </p>
+    <div>
+      <button mat-button matStepperPrevious>上一步</button>
+      <button mat-button matStepperNext *ngIf="testkey">下一步</button>
+    </div>
+  </mat-step>
+  <mat-step label="完成">
+    <p>
+      <button mat-raised-button color="primary" (click)="onstart()">開始使用</button>
+    </p>
+  </mat-step>
+</mat-horizontal-stepper>
