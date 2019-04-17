@@ -2,15 +2,15 @@
   <div fxFlex>
     <div  fxLayout="row">
       <mat-card fxFlex>
-        <div fxLayout="row" fxLayoutAlign="start center" >
-          <mat-form-field fxFlex="30">
+        <div fxLayout.lt-md="column" fxLayout="row" fxLayoutAlign="start center" fxLayoutAlign.lt-md="space-around stretch" >
+          <mat-form-field fxFlex="30" fxFlex.lt-sm="100">
             <input matInput placeholder="ebird ID" [(ngModel)]="sid" (keyup.enter)="add()">
           </mat-form-field>
-          <div fxFlex="10">
-            <button mat-raised-button color="primary" (click)="add()">新增記錄</button>
-          </div>
-          <div fxFlex="10">
-            <button mat-raised-button color="primary" (click)="openBottomSheet()">匯出記錄</button>
+          <div fxFlex="50" fxFlex.lt-sm="100">
+            <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="10px">
+              <button fxFlex="30" mat-raised-button color="primary" (click)="add()">新增記錄</button>
+              <button fxFlex="30" *ngIf="query.length>0" mat-raised-button color="accent" (click)="openBottomSheet()">匯出記錄</button>
+            </div>
           </div>
         </div>
       </mat-card>
@@ -37,7 +37,7 @@
               <mat-list>
                 <mat-list-item *ngFor="let obs of item.birds;">
                   <span style="width: 200px;">{{ obs.cname }}</span>
-                  <span>{{ obs.qty }}</span>
+                  <span style="width: 50px; text-align: right; display: inline-block;">{{ obs.qty }}</span>
                 </mat-list-item>
               </mat-list>
             </mat-card-content>

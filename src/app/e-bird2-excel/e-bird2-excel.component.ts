@@ -22,7 +22,7 @@ export class EBird2ExcelComponent implements OnInit {
 
   ngOnInit() {}
   add() {
-    console.log(this.sid);
+    // console.log(this.sid);
     this.api.get_checklist(this.sid).subscribe(
       (ret: CHECKLIST) => {
         const data = new QUERYDATA();

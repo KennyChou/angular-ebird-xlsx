@@ -14,7 +14,8 @@ const CSV_EXTENSION = '.csv';
 export class ExcelService {
   constructor() {}
 
-  public exportAsAll(queryset: QUERYDATA[], $type: 'xlsx' | 'csv'): void {
+  public exportAsAll(queryset: QUERYDATA[], $type: XLSX.BookType): void {
+    const wb: XLSX.WorkBook = XLSX.utils.book_new();
     const data = [];
     queryset.forEach(query => {
       query.birds.forEach(bird => {
@@ -28,18 +29,15 @@ export class ExcelService {
         });
       });
     });
+    // console.log(data);
 
-    const worksheet: XLSX.WorkSheet = XLSX.utils.json_to_sheet(data);
-    console.log('worksheet', worksheet);
-    const workbook: XLSX.WorkBook = {
-      Sheets: { data: worksheet },
-      SheetNames: ['sheet1']
-    };
-    const excelBuffer: any = XLSX.write(workbook, {
+    const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(data);
+    XLSX.utils.book_append_sheet(wb, ws, 'sheet1');
+    const excelBuffer: any = XLSX.write(wb, {
       bookType: $type,
       type: 'array'
     });
-    // const excelBuffer: any = XLSX.write(workbook, { bookType: 'xlsx', type: 'buffer' });
+
     if ($type === 'xlsx') {
       this.saveAsExcelFile(excelBuffer);
     } else {

@@ -15,7 +15,6 @@ export class ExportBottomSheetComponent {
   ) {}
 
   openLink(event: MouseEvent, $type: number): void {
-    console.log($type);
     if ($type === 0) {
       this.excel.exportAsPage(this.data);
     } else if ($type === 1) {
