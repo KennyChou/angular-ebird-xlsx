@@ -11,9 +11,16 @@ import { EBird2ExcelComponent } from './e-bird2-excel/e-bird2-excel.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { ExportBottomSheetComponent } from './export-bottom-sheet/export-bottom-sheet.component';
+import { ExcelService } from './excel-service.service';
 
 @NgModule({
-  declarations: [AppComponent, GetTokenComponent, EBird2ExcelComponent],
+  declarations: [
+    AppComponent,
+    GetTokenComponent,
+    EBird2ExcelComponent,
+    ExportBottomSheetComponent
+  ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -24,7 +31,8 @@ import { CommonModule } from '@angular/common';
     SharedMaterialModule,
     FlexLayoutModule
   ],
-  providers: [],
+  entryComponents: [ExportBottomSheetComponent],
+  providers: [ExcelService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

@@ -1,14 +1,18 @@
 import { NgModule } from '@angular/core';
 import {
-    MatCardModule,
-    MatInputModule,
-    MatTabsModule,
-    MatToolbarModule,
-    MatButtonModule,
-    MatIconModule,
-    MatMenuModule,
-    MatFormFieldModule
-  } from '@angular/material';
+  MatCardModule,
+  MatInputModule,
+  MatTabsModule,
+  MatToolbarModule,
+  MatButtonModule,
+  MatIconModule,
+  MatMenuModule,
+  MatFormFieldModule,
+  MatListModule,
+  MatBadgeModule,
+  MatSnackBarModule,
+  MatBottomSheetModule
+} from '@angular/material';
 
 @NgModule({
   declarations: [],
@@ -20,7 +24,11 @@ import {
     MatButtonModule,
     MatIconModule,
     MatMenuModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatListModule,
+    MatBadgeModule,
+    MatSnackBarModule,
+    MatBottomSheetModule
   ]
 })
-export class SharedMaterialModule { }
+export class SharedMaterialModule {}

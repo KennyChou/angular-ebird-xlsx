@@ -1,30 +1,48 @@
 <div fxLayout="column" fxLayoutGap="20px" style="margin: 20px;">
   <div fxFlex>
-    <div  fxLayout="row" fxLayoutGap="20px">
+    <div  fxLayout="row">
       <mat-card fxFlex>
-        <div fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="space-around center" >
-          <mat-form-field fxFlex="50">
+        <div fxLayout="row" fxLayoutAlign="start center" >
+          <mat-form-field fxFlex="30">
             <input matInput placeholder="ebird ID" [(ngModel)]="sid" (keyup.enter)="add()">
           </mat-form-field>
-          <div fxFlex="20">
+          <div fxFlex="10">
             <button mat-raised-button color="primary" (click)="add()">新增記錄</button>
           </div>
-      </div>
-      </mat-card>
-      <mat-card fxFlex>
-        Hello World
+          <div fxFlex="10">
+            <button mat-raised-button color="primary" (click)="openBottomSheet()">匯出記錄</button>
+          </div>
+        </div>
       </mat-card>
     </div>
   </div>
-  <div fxFlex>
+  <div fxFlex *ngIf="query.length>0">
     <mat-tab-group>
-      <mat-tab *ngFor="let item of query;" [label]="item.subId">
-        {{ item.locName }}
-        {{ item.userDisplayName }}
-        {{ item.obsDt }}
-        <ul>
-          <li *ngFor="let obs of item.birds;">{{ obs.cname }}  {{ obs.qty }}</li>
-        </ul>
+      <mat-tab *ngFor="let item of query; let idx = index;" [label]="item.subId">
+        <div fxLayout="row" style="margin: 5px;">
+          <mat-card fxFlex>
+            <mat-card-title fxLayout="row">
+              <span fxFlex>{{ item.locName }}</span>
+              <button mat-mini-fab color="warn" (click)="remove(idx)" fxFlexAlign="start">
+                <mat-icon>close</mat-icon>
+              </button>
+            </mat-card-title>
+            <mat-card-subtitle>
+              <p>
+                {{ item.userDisplayName }}<br/>
+                {{ item.obsDt }}
+              </p>
+            </mat-card-subtitle>
+            <mat-card-content>
+              <mat-list>
+                <mat-list-item *ngFor="let obs of item.birds;">
+                  <span style="width: 200px;">{{ obs.cname }}</span>
+                  <span>{{ obs.qty }}</span>
+                </mat-list-item>
+              </mat-list>
+            </mat-card-content>
+          </mat-card>
+        </div>
       </mat-tab>
     </mat-tab-group>
   </div>
