@@ -9,7 +9,7 @@ export class EbirdApiService {
   constructor(private http: HttpClient, private cookie: CookieService) {}
   httpOptions = {
     headers: new HttpHeaders({
-      'X-eBirdApiToken': 'ba5ifpieofc6'
+      'X-eBirdApiToken': '23abgao7v09b'
       //'X-eBirdApiToken': ''
     })
   };
