@@ -13,6 +13,7 @@ export class EbirdApiService {
       //'X-eBirdApiToken': ''
     })
   };
+  ebirdurl='https://api.ebird.org/v2'
 
   check_token(): boolean {
     const token = this.cookie.get('ebir// ApiToken');
@@ -37,13 +38,13 @@ export class EbirdApiService {
   get_checklist<observable>(sid: string) {
     // return this.http.get(`/ws2.0/product/checklist/view/${sid}`, this.httpOptions);
     return this.http.get(
-      `https://ebird.org/ws2.0/product/checklist/view/${sid}`,
+      `${this.ebirdurl}/product/checklist/view/${sid}`,
       this.httpOptions
     );
   }
   get_loc<observable>(locId: string) {
     return this.http.get(
-      `https://ebird.org/ws2.0/ref/hotspot/info/${locId}`,
+      `${this.ebirdurl}/ref/hotspot/info/${locId}`,
       this.httpOptions
     );
   }
@@ -56,7 +57,7 @@ export class EbirdApiService {
     };
     return this.http.get(
       // 'https://ebird.org/ws2.0/ref/hotspot/info/L3949628',
-      'https://ebird.org/ws2.0/product/checklist/view/S54929861',
+      '${this.ebirdurl}/product/checklist/view/S54929861',
       testheader
     );
   }
